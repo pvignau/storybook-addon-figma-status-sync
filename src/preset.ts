@@ -12,3 +12,6 @@ export const webpack = async (config: any) => {
   console.log("This addon is augmenting the Webpack config");
   return config;
 };
+
+// TODO : export experimental_indexers
+// TODO : export managerHead

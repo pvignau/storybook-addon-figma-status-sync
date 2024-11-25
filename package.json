@@ -18,7 +18,7 @@
   },
   "type": "module",
   "license": "MIT",
-  "author": "package-author",
+  "author": "Pierre-Yves Vignau <vignau.py@gmail.com>",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -41,7 +41,6 @@
     "*.d.ts"
   ],
   "scripts": {
-    "postinstall": "node scripts/welcome.js",
     "build": "tsup",
     "build:watch": "npm run build -- --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -105,7 +104,7 @@
     ]
   },
   "storybook": {
-    "displayName": "Addon Kit",
+    "displayName": "storybook Figma Status Sync",
     "supportedFrameworks": [
       "supported-frameworks"
     ],
