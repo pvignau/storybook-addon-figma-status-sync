@@ -104,7 +104,7 @@
     ]
   },
   "storybook": {
-    "displayName": "storybook Figma Status Sync",
+    "displayName": "Storybook Figma Status Sync",
     "supportedFrameworks": [
       "supported-frameworks"
     ],

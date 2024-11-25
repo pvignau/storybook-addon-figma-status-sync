@@ -2,6 +2,13 @@ import React from "react";
 import { addons, types } from "storybook/internal/manager-api";
 
 import { Panel } from "./components/Panel";
+
+// Extend the Window interface to include myAwesomeFigmaDataSet
+declare global {
+  interface Window {
+    myAwesomeFigmaDataSet: { id: string; name: string; status: string }[];
+  }
+}
 import { Tab } from "./components/Tab";
 import { Tool } from "./components/Tool";
 import { ADDON_ID, PANEL_ID, TAB_ID, TOOL_ID } from "./constants";
@@ -36,4 +43,24 @@ addons.register(ADDON_ID, (api) => {
     title: "My addon",
     render: ({ active }) => <Tab active={active} />,
   });
+
+  console.log("Window", window);
+
+  window['myAwesomeFigmaDataSet'] = [
+    {
+      id: "1",
+      name: "Design 1",
+      status: "In progress",
+    },
+    {
+      id: "2",
+      name: "Design 2",
+      status: "In progress",
+    },
+    {
+      id: "3",
+      name: "Design 3",
+      status: "In progress",
+    },
+  ]
 });
