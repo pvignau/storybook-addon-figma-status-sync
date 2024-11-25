@@ -1,9 +1,16 @@
 {
-  "name": "storybook-addon-kit",
+  "name": "storybook-figma-status-sync",
   "version": "0.0.0",
-  "description": "everything you need to build a Storybook addon",
+  "description": "A Storybook addon to sync Figma component status as Storybook tags ",
   "keywords": [
-    "storybook-addons"
+    "storybook",
+    "storybook-addons",
+    "figma",
+    "design-system",
+    "design",
+    "organize",
+    "tags",
+    "status"
   ],
   "repository": {
     "type": "git",
@@ -49,13 +56,13 @@
     "@storybook/icons": "^1.2.10"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "0.0.0-pr-26654-sha-49d01553",
-    "@storybook/addon-interactions": "0.0.0-pr-26654-sha-49d01553",
-    "@storybook/addon-links": "0.0.0-pr-26654-sha-49d01553",
-    "@storybook/blocks": "0.0.0-pr-26654-sha-49d01553",
-    "@storybook/react": "0.0.0-pr-26654-sha-49d01553",
-    "@storybook/react-vite": "0.0.0-pr-26654-sha-49d01553",
-    "@storybook/test": "0.0.0-pr-26654-sha-49d01553",
+    "@storybook/addon-essentials": "^8.0.0",
+    "@storybook/addon-interactions": "^8.0.0",
+    "@storybook/addon-links": "^8.0.0",
+    "@storybook/blocks": "^8.0.0",
+    "@storybook/react": "^8.0.0",
+    "@storybook/react-vite": "^8.0.0",
+    "@storybook/test": "^8.0.0",
     "@types/node": "^18.15.0",
     "@types/react": "^18.2.65",
     "@types/react-dom": "^18.2.21",
@@ -68,17 +75,17 @@
     "prompts": "^2.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "0.0.0-pr-26654-sha-49d01553",
+    "storybook": "^8.0.0",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4",
     "vite": "^5.3.5",
     "zx": "^7.2.3"
   },
   "peerDependencies": {
-    "storybook": "^8.3.0 || 0.0.0-pr-26654-sha-49d01553"
+    "storybook": "^8.0.0"
   },
   "overrides": {
-    "storybook": "0.0.0-pr-26654-sha-49d01553"
+    "storybook": "^8.0.0"
   },
   "publishConfig": {
     "access": "public"
