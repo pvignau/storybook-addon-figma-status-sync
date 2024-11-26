@@ -1,5 +1,5 @@
 {
-  "name": "storybook-figma-status-sync",
+  "name": "storybook-addon-figma-status-sync",
   "version": "0.0.0",
   "description": "A Storybook addon to sync Figma component status as Storybook tags ",
   "keywords": [
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/storybookjs/storybook-addon-kit"
+    "url": "git+https://github.com/pvignau/storybook-figma-status-sync.git"
   },
   "type": "module",
   "license": "MIT",
@@ -104,10 +104,10 @@
     ]
   },
   "storybook": {
-    "displayName": "Storybook Figma Status Sync",
+    "displayName": "Figma Status Sync",
     "supportedFrameworks": [
       "supported-frameworks"
     ],
-    "icon": "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png"
+    "icon": "https://raw.githubusercontent.com/pvignau/storybook-figma-status-sync/main/static/icon.png"
   }
 }
