@@ -72,6 +72,8 @@ export const Tab: React.FC<TabProps> = ({ active }) => {
             <LightningIcon />
           </IconButton>
         </p>
+        <p>And you can access the Figma data we've defined earlier!</p>
+        <Code lang="json">{JSON.stringify(window[KEY], null, 2)}</Code>
       </TabInner>
     </TabWrapper>
   );

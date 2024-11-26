@@ -52,7 +52,8 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@storybook/icons": "^1.2.10"
+    "@storybook/icons": "^1.2.10",
+    "picocolors": "^1.1.1"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^8.0.0",
