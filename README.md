@@ -1,263 +1,157 @@
-<!-- README START -->
+<div align="center">
+  <picture style="display: flex; flex-direction: column; align-items: center;">
+    <source src="./static/addon-example.avif" type="image/avif" />
+    <img style="border-radius: 1rem;"
+      src="./static/addon-example.png"
+      alt="Example of the addon in use, showing a status page for components published on a Figma file."
+      loading="lazy"
+      decoding="async"
+      height="247"
+    />
+  </picture>
 
-# Storybook Addon Kit ([demo](https://main--601ada52c3d4040021afdc30.chromatic.com))
+  <h1>Storybook Addon - Figma Status Sync</h1>
+  
+  <p>
+    This addon translates status information fetches from published components in a Figma component library that use a <a href="TODO">companion Figma community file</a> into <a href="https://storybook.js.org/docs/writing-stories/tags">tags</a> for your stories, and provides you with an automatically-generated component status page.
+  </p>
 
-Simplify the creation of Storybook addons
+  <p>
+    <img src="https://img.shields.io/badge/status-experimental-c74c1e" alt="Status: Experimental" />
+    <a href="https://github.com/pvignau/storybook-figma-status-sync/commits"><img src="https://img.shields.io/github/commit-activity/m/pvignau/storybook-figma-status-sync" alt="commit activity" /></a>
+    <a href="https://github.com/pvignau/storybook-figma-status-sync/commits"><img src="https://img.shields.io/github/last-commit/pvignau/storybook-figma-status-sync" alt="last commit" /></a>
+    <a href="https://github.com/pvignau/storybook-figma-status-sync/issues/"><img src="https://img.shields.io/github/issues/pvignau/storybook-figma-status-sync" alt="open issues" /></a>
+    <a href="https://github.com/pvignau/storybook-figma-status-sync/actions/workflows/github-code-scanning/codeql"><img src="https://github.com/pvignau/storybook-figma-status-sync/actions/workflows/github-code-scanning/codeql/badge.svg?branch=main" alt="CodeQL status" /></a>
+    <a href="https://github.com/pvignau/storybook-figma-status-sync/actions/workflows/continuous-integration.yml"><img src="https://github.com/pvignau/storybook-figma-status-sync/actions/workflows/continuous-integration.yml/badge.svg?branch=main" alt="CI status" /></a>
+    <a href="https://codecov.io/gh/pvignau/storybook-figma-status-sync"><img src="https://codecov.io/gh/pvignau/storybook-figma-status-sync/graph/badge.svg?token=4SX3N57XH3" alt="code coverage" /></a>
+    <a href="https://github.com/pvignau/storybook-figma-status-sync/graphs/contributors"><img src="https://img.shields.io/github/contributors/pvignau/storybook-figma-status-sync" alt="contributors" /></a>
+    <a href="https://github.com/pvignau/storybook-figma-status-sync/blob/main/CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" alt="code of conduct: contributor covenant 2.1" /></a>
+    <a href="https://github.com/pvignau/storybook-figma-status-sync/blob/main/LICENSE"><img src="https://img.shields.io/github/license/pvignau/storybook-figma-status-sync.svg" alt="license" /></a>
+    <a href="https://github.com/pvignau/storybook-figma-status-sync/network/members"><img src="https://img.shields.io/github/forks/pvignau/storybook-figma-status-sync" alt="forks" /></a>
+    <a href="https://github.com/pvignau/storybook-figma-status-sync/stargazers"><img src="https://img.shields.io/github/stars/pvignau/storybook-figma-status-sync" alt="stars" /></a>
+  </p>
+</div>
 
-- 📝 Live-editing in development
-- ⚛️ React/JSX support
-- 📦 Transpiling and bundling with [tsup](https://tsup.egoist.dev/)
-- 🏷 Plugin metadata
-- 🚢 Release management with [Auto](https://github.com/intuit/auto)
-- 🧺 Boilerplate and sample code
-- 🛄 ESM support
-- 🛂 TypeScript by default with option to eject to JS
+---
 
-### Migrating to a later Storybook version
+## 📔 Table of Contents
 
-If you have an existing addon that you want to migrate to support the latest version of Storyboook, you can check out the [addon migration guide](https://storybook.js.org/docs/addons/addon-migration-guide).
+<!-- no toc -->
+- [Table of Contents](#-table-of-contents)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Contributing](#-contributing)
+- [Support](#-support)
+- [Contact](#️-contact)
+- [Acknowledgments](#-acknowledgments)
 
-## Getting Started
-
-Click the **Use this template** button to get started.
-
-![](https://user-images.githubusercontent.com/321738/125058439-8d9ef880-e0aa-11eb-9211-e6d7be812959.gif)
-
-Clone your repository and install dependencies.
-
-```sh
-npm install
-```
-
-<!-- README END -->
-
-### Development scripts
-
-- `npm run start` runs babel in watch mode and starts Storybook
-- `npm run build` build and package your addon code
-
-### Switch from TypeScript to JavaScript
-
-Don't want to use TypeScript? We offer a handy eject command: `npm run eject-ts`
-
-This will convert all code to JS. It is a destructive process, so we recommended running this before you start writing any code.
-
-## What's included?
-
-![Demo](https://user-images.githubusercontent.com/42671/107857205-e7044380-6dfa-11eb-8718-ad02e3ba1a3f.gif)
-
-The addon code lives in `src`. It demonstrates all core addon related concepts. The three [UI paradigms](https://storybook.js.org/docs/react/addons/addon-types#ui-based-addons)
-
-- `src/Tool.tsx`
-- `src/Panel.tsx`
-- `src/Tab.tsx`
-
-Which, along with the addon itself, are registered in `src/manager.ts`.
-
-Managing State and interacting with a story:
-
-- `src/withGlobals.ts` & `src/Tool.tsx` demonstrates how to use `useGlobals` to manage global state and modify the contents of a Story.
-- `src/withRoundTrip.ts` & `src/Panel.tsx` demonstrates two-way communication using channels.
-- `src/Tab.tsx` demonstrates how to use `useParameter` to access the current story's parameters.
-
-Your addon might use one or more of these patterns. Feel free to delete unused code. Update `src/manager.ts` and `src/preview.ts` accordingly.
-
-Lastly, configure you addon name in `src/constants.ts`.
-
-### Bundling
-
-Addons can interact with a Storybook project in multiple ways. It is recommended to familiarize yourself with [the basics](https://storybook.js.org/docs/react/addons/introduction) before getting started.
-
-- Manager entries are used to add UI or behavior to the Storybook manager UI.
-- Preview entries are used to add UI or behavior to the preview iframe where stories are rendered.
-- Presets are used to modify the Storybook configuration, similar to how [users can configure their `main.ts` configurations](https://storybook.js.org/docs/react/api/main-config).
-
-Since each of these places represents a different environment with different features and modules, it is also recommended to split and build your modules accordingly. This addon-kit comes with a preconfigured [bundling configuration](./tsup.config.ts) that supports this split, and you are free to modify and extend it as needed.
-
-You can define which modules match which environments in the [`package.json#bundler`](./package.json) property:
-
-- `exportEntries` is a list of module entries that users can manually import from anywhere they need to. For example, you could have decorators that users need to import into their `preview.ts` file or utility functions that can be used in their `main.ts` files.
-- `managerEntries` is a list of module entries meant only for the manager UI. These modules will be bundled to ESM and won't include types since they are mostly loaded by Storybook directly.
-- `previewEntries` is a list of module entries meant only for the preview UI. These modules will be bundled to ESM and won't include types since they are mostly loaded by Storybook directly.
-
-Manager and preview entries are only used in the browser so they only output ESM modules. Export entries could be used both in the browser and in Node depending on their use case, so they both output ESM and CJS modules.
-
-#### Globalized packages
-
-Storybook provides a predefined set of packages that are available in the manager UI and the preview UI. In the final bundle of your addon, these packages should not be included. Instead, the imports should stay in place, allowing Storybook to replace those imports with the actual packages during the Storybook build process.
-
-The list of packages differs between the manager and the preview, which is why there is a slight difference between `managerEntries` and `previewEntries`. Most notably, `react` and `react-dom` are prebundled in the manager but not in the preview. This means that your manager entries can use React to build UI without bundling it or having a direct reference to it. Therefore, it is safe to have React as a `devDependency` even though you are using it in production. _Requiring React as a peer dependency would unnecessarily force your users to install React._
-
-An exception to this rule is if you are using React to inject UI into the preview, which does not come prebundled with React. In such cases, you need to move `react` and `react-dom` to a peer dependency. However, we generally advise against this pattern since it would limit the usage of your addon to React-based Storybooks.
-
-### Metadata
-
-Storybook addons are listed in the [catalog](https://storybook.js.org/addons) and distributed via npm. The catalog is populated by querying npm's registry for Storybook-specific metadata in `package.json`. This project has been configured with sample data. Learn more about available options in the [Addon metadata docs](https://storybook.js.org/docs/react/addons/addon-catalog#addon-metadata).
-
-## Documentation
-
-To help the community use your addon and understand its capabilities, please document it thoroughly.
-
-To get started, replace this README with the content in this sample template, modeled after how essential addons (like [Actions](https://storybook.js.org/docs/essentials/actions)) are documented. Then update the content to describe your addon.
-
-### Sample documentation template
-
-````md
-# My Addon
-
-## Installation
-
-First, install the package.
+## 📦 Installation
 
 ```sh
-npm install --save-dev my-addon
+yarn add -D storybook-addon-figma-status-sync
 ```
 
-Then, register it as an addon in `.storybook/main.js`.
-
-```js
-// .storybook/main.ts
-
-// Replace your-framework with the framework you are using (e.g., react-webpack5, vue3-vite)
-import type { StorybookConfig } from '@storybook/your-framework';
-
-const config: StorybookConfig = {
-  // ...rest of config
-  addons: [
-    '@storybook/addon-essentials'
-    'my-addon', // 👈 register the addon here
-  ],
-};
-
-export default config;
+```sh
+npm install -D storybook-addon-figma-status-sync
 ```
 
-## Usage
-
-The primary way to use this addon is to define the `exampleParameter` parameter. You can do this the
-component level, as below, to affect all stories in the file, or you can do it for a single story.
-
-```js
-// Button.stories.ts
-
-// Replace your-framework with the name of your framework
-import type { Meta } from '@storybook/your-framework';
-
-import { Button } from './Button';
-
-const meta: Meta<typeof Button> = {
-  component: Button,
-  parameters: {
-    myAddon: {
-      exampleParameter: true,
-      // See API section below for available parameters
-    }
-  }
-};
-
-export default meta;
+```sh
+pnpm install -D storybook-addon-figma-status-sync
 ```
 
-Another way to use the addon is...
-
-## API
-
-### Parameters
-
-This addon contributes the following parameters to Storybook, under the `myAddon` namespace:
-
-#### `disable`
-
-Type: `boolean`
-
-Disable this addon's behavior. This parameter is most useful to allow overriding at more specific
-levels. For example, if this parameter is set to true at the project level, it could then be
-re-enabled by setting it to false at the meta (component) or story level.
-
-### Options
-
-When registering this addon, you can configure it with the following options, which are passed when
-registering the addon, like so:
+In your `.storybook/main.ts` file, add the following:
 
 ```ts
 // .storybook/main.ts
-
-// Replace your-framework with the framework you are using (e.g., react-webpack5, vue3-vite)
-import type { StorybookConfig } from '@storybook/your-framework';
-
-const config: StorybookConfig = {
-  // ...rest of config
+export default {
   addons: [
-    '@storybook/essentials',
-    {
-      name: 'my-addon',
-      options: {
-        // 👈 options for my-addon go here
-      },
-    },
+    // ...
+    // Put this last to ensure it overrides all indexers from all other addons.
+    'storybook-addon-figma-status-sync',
   ],
-};
-
-export default config;
+}
 ```
 
-#### `useExperimentalBehavior`
+> [!CAUTION]
+> TODO continue instructions
 
-Type: `boolean`
+## 👀 Usage
 
-Enable experimental behavior to...
+> [!CAUTION]
+> TODO
 
-````
+## Roadmap
 
-## Release Management
+> [!TIP]
+> * Add option to transform indexed entries and inject tags based on data
+> * Provide default option matching our needs
+> 
 
-### Setup
+## 👩🏽‍💻 Contributing
 
-This project is configured to use [auto](https://github.com/intuit/auto) for release management. It generates a changelog and pushes it to both GitHub and npm. Therefore, you need to configure access to both:
+### Code of Conduct
 
-- [`NPM_TOKEN`](https://docs.npmjs.com/creating-and-viewing-access-tokens#creating-access-tokens) Create a token with both _Read and Publish_ permissions.
-- [`GH_TOKEN`](https://github.com/settings/tokens) Create a token with the `repo` scope.
+Please read the [Code of Conduct](https://github.com/pvignau/storybook-figma-status-sync/blob/main/CODE_OF_CONDUCT.md) first.
 
-Then open your `package.json` and edit the following fields:
+### Developer Certificate of Origin
 
-- `name`
-- `author`
-- `repository`
+To ensure that contributors are legally allowed to share the content they contribute under the license terms of this project, contributors must adhere to the [Developer Certificate of Origin](https://developercertificate.org/) (DCO). All contributions made must be signed to satisfy the DCO. This is handled by a Pull Request check.
 
-#### Local
+> By signing your commits, you attest to the following:
+>
+> 1. The contribution was created in whole or in part by you and you have the right to submit it under the open source license indicated in the file; or
+> 2. The contribution is based upon previous work that, to the best of your knowledge, is covered under an appropriate open source license and you have the right under that license to submit that work with modifications, whether created in whole or in part by you, under the same open source license (unless you are permitted to submit under a different license), as indicated in the file; or
+> 3. The contribution was provided directly to you by some other person who certified 1., 2. or 3. and you have not modified it.
+> 4. You understand and agree that this project and the contribution are public and that a record of the contribution (including all personal information you submit with it, including your sign-off) is maintained indefinitely and may be redistributed consistent with this project or the open source license(s) involved.
 
-To use `auto` locally create a `.env` file at the root of your project and add your tokens to it:
+### Getting Started
 
-```bash
-GH_TOKEN=<value you just got from GitHub>
-NPM_TOKEN=<value you just got from npm>
-```
+This project uses PNPM as a package manager.
 
-Lastly, **create labels on GitHub**. You’ll use these labels in the future when making changes to the package.
+- See the [installation instructions for PNPM](https://pnpm.io/installation)
+- Run `pnpm i`
 
-```bash
-npx auto create-labels
-```
+### Useful commands
 
-If you check on GitHub, you’ll now see a set of labels that `auto` would like you to use. Use these to tag future pull requests.
+- `pnpm start` starts the local Storybook
+- `pnpm build` builds and packages the addon code
+- `pnpm pack:local` makes a local tarball to be used as a NPM dependency elsewhere
+- `pnpm test` runs unit tests
 
-#### GitHub Actions
+### Migrating to a later Storybook version
 
-This template comes with GitHub actions already set up to publish your addon anytime someone pushes to your repository.
+If you want to migrate the addon to support the latest version of Storyboook, you can check out the [addon migration guide](https://storybook.js.org/docs/addons/addon-migration-guide).
 
-Go to `Settings > Secrets`, click `New repository secret`, and add your `NPM_TOKEN`.
+### Release System
 
-### Creating a release
+This package auto-releases on pushes to `main` with [semantic-release](https://github.com/semantic-release/semantic-release). No changelog is maintained and the version number in `package.json` is not synchronised.
 
-To create a release locally you can run the following command, otherwise the GitHub action will make the release for you.
+## 🆘 Support
 
-```sh
-npm run release
-```
+Please [open an issue](https://github.com/pvignau/storybook-figma-status-sync/issues/new) for bug reports or code suggestions. Make sure to include a working Minimal Working Example for bug reports. You may use [storybook.new](https://new-storybook.netlify.app/) to bootstrap a reproduction environment.
 
-That will:
+## ✉️ Contact
 
-- Build and package the addon code
-- Bump the version
-- Push a release to GitHub and npm
-- Push a changelog to GitHub
+* Pierre-Yves Vignau · `@pyve__` on the [Storybook Discord](https://discord.gg/storybook) - [LinkedIn](https://www.linkedin.com/in/pierre-yves-vignau-a99a9424/)
+* Steve Dodier-Lazaro · `@Frog` on the [Storybook Discord](https://discord.gg/storybook) - [LinkedIn](https://www.linkedin.com/in/stevedodierlazaro/)
+
+Project Link: [https://github.com/pvignau/storybook-figma-status-sync](https://github.com/pvignau/storybook-figma-status-sync)
+
+## 💛 Acknowledgments
+
+### Thanks
+
+- [Michael Shilman](https://github.com/shilman) for his help with addon internals
+
+### Built With
+
+[![Dependabot](https://img.shields.io/badge/Dependabot-025E8C?logo=dependabot&logoColor=white)](https://github.com/dependabot)
+[![ESLint](https://img.shields.io/badge/ESLint-4b32c3?logo=eslint&logoColor=white)](https://eslint.org/)
+[![Figma](https://img.shields.io/badge/Figma-a259ff?logo=figma&logoColor=white)](https://github.com/figma/rest-api-spec/)
+[![GitHub](https://img.shields.io/badge/GitHub-0d1117?logo=github&logoColor=white)](https://github.com/solutions/ci-cd)
+[![Prettier](https://img.shields.io/badge/Prettier-f8bc45?logo=prettier&logoColor=black)](https://prettier.io/)
+[![Semantic-Release](https://img.shields.io/badge/semantic--release-cccccc?logo=semantic-release&logoColor=black)](https://github.com/semantic-release/semantic-release)
+[![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@main/badge/badge-storybook.svg)](https://storybook.js.org/)
+[![tsup](https://img.shields.io/badge/tsup-fde047)](https://tsup.egoist.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vitest](https://img.shields.io/badge/Vitest-acd268?logo=vitest&logoColor=black)](https://https://vitest.dev/)
