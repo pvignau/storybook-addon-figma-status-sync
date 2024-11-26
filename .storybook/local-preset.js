@@ -1,3 +1,5 @@
+import { experimental_indexers, managerHead } from "../src/preset";
+
 /**
  * to load the built addon in this test Storybook
  */
@@ -10,6 +12,8 @@ function managerEntries(entry = []) {
 }
 
 module.exports = {
+  experimental_indexers,
+  managerHead,
   managerEntries,
   previewAnnotations,
 };

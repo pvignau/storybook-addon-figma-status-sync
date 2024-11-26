@@ -11,6 +11,9 @@ importers:
       '@storybook/icons':
         specifier: ^1.2.10
         version: 1.2.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      picocolors:
+        specifier: ^1.1.1
+        version: 1.1.1
     devDependencies:
       '@storybook/addon-essentials':
         specifier: ^8.0.0
