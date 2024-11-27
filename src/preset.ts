@@ -13,10 +13,6 @@ interface FigmaSyncInitOpts {
   path?: string
 }
 
-interface FigmaSyncOptions extends Options {
-  figmaSync: FigmaSyncInitOpts
-}
-
 let _figmaData: FigmaComponentStatus[]
 function figmaSyncInit(opts: FigmaSyncInitOpts) {
   const { data, path: dataPath } = opts || {}

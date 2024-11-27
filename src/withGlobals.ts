@@ -33,7 +33,7 @@ export const withGlobals = (
  * It's not really recommended to inject content into the canvas like this.
  * But there are use cases
  */
-function addExtraContentToStory(canvas: ParentNode, state: Object) {
+function addExtraContentToStory(canvas: ParentNode, state: object) {
   const preElement =
     canvas.querySelector(`[data-id="${KEY}"]`) ||
     canvas.appendChild(document.createElement('pre'))
