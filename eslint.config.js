@@ -42,5 +42,11 @@ export default [
       '@typescript-eslint/no-require-imports': 'off',
     },
   },
+  {
+    files: ['**/*.spec.ts', '**/*.spec.tsx', '**/*.test.ts', '**/*.test.tsx'],
+    rules: {
+      'no-empty-pattern': 'off',
+    },
+  },
   prettierRecommended,
 ]

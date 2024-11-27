@@ -83,21 +83,19 @@ const withFigmaSyncTags = (
           }
 
           const componentName = extractComponentName(entry)
-
-          /* If the name could not be extracted, we have a problem, houston. */
           if (!componentName) {
             throw new Error(
-              `Nameless story file found; this file cannot be mapped to a Figma component. Please contact the design system team quoting this error message and data object:\n${JSON.stringify(entry, null, 2)}\n`,
+              `Nameless story file found; this file cannot be mapped to a Figma component. Please file a bug report with a minimal working example, knowing this is likely a problem with your Storybook content.\nFaulty entry:\n${JSON.stringify(entry, null, 2)}\n`,
             )
           }
 
           const figma = findFigmaEntry(figmaData, componentName)
 
-          /* If the name could not be extracted, we have a problem, houston. */
+          /* Figma name not found, assume the component only exists on the code side of things. */
           if (!figma) {
             return {
               ...entry,
-              tags: makeTags(tags, ['tech-only'], false),
+              tags: makeTags(tags, ['code-only'], false),
             }
           }
 
