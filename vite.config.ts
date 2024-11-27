@@ -1,7 +1,21 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  test: {
+    coverage: {
+      include: [
+        'src/**/*.{mjs,mjsx,js,jsx,ts,tsx}',
+        '!src/stories/**',
+        '!src/examples/**',
+        '!src/**/*.stories.{ts,tsx}',
+      ],
+      provider: 'istanbul',
+    },
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./src/__tests__/setup.ts'],
+  },
 })
