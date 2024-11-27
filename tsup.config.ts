@@ -17,16 +17,6 @@ type BundlerConfig = {
 }
 
 export default defineConfig(async (options) => {
-  // reading the three types of entries from package.json, which has the following structure:
-  // {
-  //  ...
-  //   "bundler": {
-  //     "exportEntries": ["./src/index.ts"],
-  //     "managerEntries": ["./src/manager.ts"],
-  //     "previewEntries": ["./src/preview.ts"]
-  //     "nodeEntries": ["./src/preset.ts"]
-  //   }
-  // }
   const packageJson = (await readFile('./package.json', 'utf8').then(
     JSON.parse,
   )) as BundlerConfig
@@ -109,6 +99,15 @@ export default defineConfig(async (options) => {
       platform: 'node',
     })
   }
+
+  // The bin entry builds our Figma REST API script
+  configs.push({
+    ...commonConfig,
+    entry: ['src/bin/figmasync.ts'],
+    format: ['cjs'],
+    target: NODE_TARGET,
+    platform: 'node',
+  })
 
   return configs
 })
