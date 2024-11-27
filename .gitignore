@@ -1,7 +1,12 @@
 dist/
+\*.tgz
 node_modules/
 storybook-static/
 build-storybook.log
 .DS_Store
 .env
+.idea
+.vscode
+.eslintcache
+coverage
 .storybook/figma.json
