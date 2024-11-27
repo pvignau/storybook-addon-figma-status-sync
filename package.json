@@ -34,6 +34,9 @@
     "./manager": "./dist/manager.js",
     "./package.json": "./package.json"
   },
+  "bin": {
+    "figmasync": "./dist/figmasync.cjs"
+  },
   "files": [
     "dist/**/*",
     "README.md",
