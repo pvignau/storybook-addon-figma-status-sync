@@ -18,17 +18,17 @@
 
   <p>
     <img src="https://img.shields.io/badge/status-experimental-c74c1e" alt="Status: Experimental" />
-    <a href="https://github.com/pvignau/storybook-figma-status-sync/commits"><img src="https://img.shields.io/github/commit-activity/m/pvignau/storybook-figma-status-sync" alt="commit activity" /></a>
-    <a href="https://github.com/pvignau/storybook-figma-status-sync/commits"><img src="https://img.shields.io/github/last-commit/pvignau/storybook-figma-status-sync" alt="last commit" /></a>
-    <a href="https://github.com/pvignau/storybook-figma-status-sync/issues/"><img src="https://img.shields.io/github/issues/pvignau/storybook-figma-status-sync" alt="open issues" /></a>
-    <a href="https://github.com/pvignau/storybook-figma-status-sync/actions/workflows/github-code-scanning/codeql"><img src="https://github.com/pvignau/storybook-figma-status-sync/actions/workflows/github-code-scanning/codeql/badge.svg?branch=main" alt="CodeQL status" /></a>
-    <a href="https://github.com/pvignau/storybook-figma-status-sync/actions/workflows/continuous-integration.yml"><img src="https://github.com/pvignau/storybook-figma-status-sync/actions/workflows/continuous-integration.yml/badge.svg?branch=main" alt="CI status" /></a>
-    <a href="https://codecov.io/gh/pvignau/storybook-figma-status-sync"><img src="https://codecov.io/gh/pvignau/storybook-figma-status-sync/graph/badge.svg?token=4SX3N57XH3" alt="code coverage" /></a>
-    <a href="https://github.com/pvignau/storybook-figma-status-sync/graphs/contributors"><img src="https://img.shields.io/github/contributors/pvignau/storybook-figma-status-sync" alt="contributors" /></a>
-    <a href="https://github.com/pvignau/storybook-figma-status-sync/blob/main/CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" alt="code of conduct: contributor covenant 2.1" /></a>
-    <a href="https://github.com/pvignau/storybook-figma-status-sync/blob/main/LICENSE"><img src="https://img.shields.io/github/license/pvignau/storybook-figma-status-sync.svg" alt="license" /></a>
-    <a href="https://github.com/pvignau/storybook-figma-status-sync/network/members"><img src="https://img.shields.io/github/forks/pvignau/storybook-figma-status-sync" alt="forks" /></a>
-    <a href="https://github.com/pvignau/storybook-figma-status-sync/stargazers"><img src="https://img.shields.io/github/stars/pvignau/storybook-figma-status-sync" alt="stars" /></a>
+    <a href="https://github.com/pvignau/storybook-addon-figma-status-sync/commits"><img src="https://img.shields.io/github/commit-activity/m/pvignau/storybook-addon-figma-status-sync" alt="commit activity" /></a>
+    <a href="https://github.com/pvignau/storybook-addon-figma-status-sync/commits"><img src="https://img.shields.io/github/last-commit/pvignau/storybook-addon-figma-status-sync" alt="last commit" /></a>
+    <a href="https://github.com/pvignau/storybook-addon-figma-status-sync/issues/"><img src="https://img.shields.io/github/issues/pvignau/storybook-addon-figma-status-sync" alt="open issues" /></a>
+    <a href="https://github.com/pvignau/storybook-addon-figma-status-sync/actions/workflows/github-code-scanning/codeql"><img src="https://github.com/pvignau/storybook-addon-figma-status-sync/actions/workflows/github-code-scanning/codeql/badge.svg?branch=main" alt="CodeQL status" /></a>
+    <a href="https://github.com/pvignau/storybook-addon-figma-status-sync/actions/workflows/continuous-integration.yml"><img src="https://github.com/pvignau/storybook-addon-figma-status-sync/actions/workflows/continuous-integration.yml/badge.svg?branch=main" alt="CI status" /></a>
+    <a href="https://codecov.io/gh/pvignau/storybook-addon-figma-status-sync"><img src="https://codecov.io/gh/pvignau/storybook-addon-figma-status-sync/graph/badge.svg?token=4SX3N57XH3" alt="code coverage" /></a>
+    <a href="https://github.com/pvignau/storybook-addon-figma-status-sync/graphs/contributors"><img src="https://img.shields.io/github/contributors/pvignau/storybook-addon-figma-status-sync" alt="contributors" /></a>
+    <a href="https://github.com/pvignau/storybook-addon-figma-status-sync/blob/main/CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" alt="code of conduct: contributor covenant 2.1" /></a>
+    <a href="https://github.com/pvignau/storybook-addon-figma-status-sync/blob/main/LICENSE"><img src="https://img.shields.io/github/license/pvignau/storybook-addon-figma-status-sync.svg" alt="license" /></a>
+    <a href="https://github.com/pvignau/storybook-addon-figma-status-sync/network/members"><img src="https://img.shields.io/github/forks/pvignau/storybook-addon-figma-status-sync" alt="forks" /></a>
+    <a href="https://github.com/pvignau/storybook-addon-figma-status-sync/stargazers"><img src="https://img.shields.io/github/stars/pvignau/storybook-addon-figma-status-sync" alt="stars" /></a>
   </p>
 </div>
 
@@ -91,7 +91,7 @@ export default {
 
 ### Code of Conduct
 
-Please read the [Code of Conduct](https://github.com/pvignau/storybook-figma-status-sync/blob/main/CODE_OF_CONDUCT.md) first.
+Please read the [Code of Conduct](https://github.com/pvignau/storybook-addon-figma-status-sync/blob/main/CODE_OF_CONDUCT.md) first.
 
 ### Developer Certificate of Origin
 
@@ -128,14 +128,14 @@ This package auto-releases on pushes to `main` with [semantic-release](https://g
 
 ## 🆘 Support
 
-Please [open an issue](https://github.com/pvignau/storybook-figma-status-sync/issues/new) for bug reports or code suggestions. Make sure to include a working Minimal Working Example for bug reports. You may use [storybook.new](https://new-storybook.netlify.app/) to bootstrap a reproduction environment.
+Please [open an issue](https://github.com/pvignau/storybook-addon-figma-status-sync/issues/new) for bug reports or code suggestions. Make sure to include a working Minimal Working Example for bug reports. You may use [storybook.new](https://new-storybook.netlify.app/) to bootstrap a reproduction environment.
 
 ## ✉️ Contact
 
 * Pierre-Yves Vignau · `@pyve__` on the [Storybook Discord](https://discord.gg/storybook) - [LinkedIn](https://www.linkedin.com/in/pierre-yves-vignau-a99a9424/)
 * Steve Dodier-Lazaro · `@Frog` on the [Storybook Discord](https://discord.gg/storybook) - [LinkedIn](https://www.linkedin.com/in/stevedodierlazaro/)
 
-Project Link: [https://github.com/pvignau/storybook-figma-status-sync](https://github.com/pvignau/storybook-figma-status-sync)
+Project Link: [https://github.com/pvignau/storybook-addon-figma-status-sync](https://github.com/pvignau/storybook-addon-figma-status-sync)
 
 ## 💛 Acknowledgments
 
