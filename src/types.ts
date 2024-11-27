@@ -1,10 +1,10 @@
 export interface FigmaComponentStatus {
-  name: string;
-  category: string;
-  version: string;
-  isDeprecated: boolean;
+  name: string
+  category: string
+  version: string
+  isDeprecated: boolean
   devStatus: {
-    type: string;
-    description: string | null;
-  } | null;
+    type: string
+    description: string | null
+  } | null
 }

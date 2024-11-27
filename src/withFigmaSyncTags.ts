@@ -1,6 +1,6 @@
-import type { Indexer, StoryIndexInput } from "storybook/internal/types";
+import type { Indexer, StoryIndexInput } from 'storybook/internal/types'
 
-import type { FigmaComponentStatus } from "./types";
+import type { FigmaComponentStatus } from './types'
 
 /**
  * Extracts the component name from the import path.
@@ -9,9 +9,9 @@ import type { FigmaComponentStatus } from "./types";
  */
 function extractComponentName({ importPath }: StoryIndexInput): string | null {
   return importPath
-    .split("/")
+    .split('/')
     .pop()
-    .replace(/\.stories\.[a-z]+$/, "");
+    .replace(/\.stories\.[a-z]+$/, '')
 }
 
 /**
@@ -23,7 +23,7 @@ function findFigmaEntry(
   figmaData: FigmaComponentStatus[],
   sbName: string,
 ): FigmaComponentStatus | null {
-  return figmaData.find(({ name }) => name === sbName) ?? null;
+  return figmaData.find(({ name }) => name === sbName) ?? null
 }
 
 /**
@@ -32,7 +32,7 @@ function findFigmaEntry(
  * @returns {string | null} - The version tag or null if it couldn't be found
  */
 function findVersionTag(tags: string[]): string | null {
-  return tags.find((tag) => tag.match(/v:.*/))?.replace(/^v:/, "") ?? null;
+  return tags.find((tag) => tag.match(/v:.*/))?.replace(/^v:/, '') ?? null
 }
 
 /**
@@ -47,11 +47,11 @@ function makeTags(
   additions: string[],
   isDeprecated: boolean,
 ): string[] {
-  const ret = [...tags, ...additions];
+  const ret = [...tags, ...additions]
   if (isDeprecated) {
-    ret.push("deprecated");
+    ret.push('deprecated')
   }
-  return ret;
+  return ret
 }
 
 /**
@@ -67,56 +67,56 @@ const withFigmaSyncTags = (
     (indexer: Indexer): Indexer => ({
       test: indexer.test,
       async createIndex(...args) {
-        const existingOutput = await indexer.createIndex(...args);
+        const existingOutput = await indexer.createIndex(...args)
 
         return existingOutput.map((entry) => {
-          const { tags = [] } = entry;
+          const { tags = [] } = entry
           /* Only consider components that exist in the DS.
            * For outside-DS components, do nothing. */
-          if (tags.includes("outside-ds")) {
-            return entry;
+          if (tags.includes('outside-ds')) {
+            return entry
           }
 
           /* Type sanitization, in practice they're always stories. */
-          if (entry.type !== "story") {
-            return entry;
+          if (entry.type !== 'story') {
+            return entry
           }
 
-          const componentName = extractComponentName(entry);
+          const componentName = extractComponentName(entry)
 
           /* If the name could not be extracted, we have a problem, houston. */
           if (!componentName) {
             throw new Error(
               `Nameless story file found; this file cannot be mapped to a Figma component. Please contact the design system team quoting this error message and data object:\n${JSON.stringify(entry, null, 2)}\n`,
-            );
+            )
           }
 
-          const figma = findFigmaEntry(figmaData, componentName);
+          const figma = findFigmaEntry(figmaData, componentName)
 
           /* If the name could not be extracted, we have a problem, houston. */
           if (!figma) {
             return {
               ...entry,
-              tags: makeTags(tags, ["tech-only"], false),
-            };
+              tags: makeTags(tags, ['tech-only'], false),
+            }
           }
 
-          const localVersion = findVersionTag(tags);
+          const localVersion = findVersionTag(tags)
 
           /* Local version could not be found, assume the component is still in progress. */
           if (!localVersion) {
             return {
               ...entry,
-              tags: makeTags(tags, ["experimental"], figma.isDeprecated),
-            };
+              tags: makeTags(tags, ['experimental'], figma.isDeprecated),
+            }
           }
 
           /* If version mismatch, we must warn our end users that they're late compared to Figma. */
           if (localVersion !== figma.version) {
-            const local = localVersion.split(".");
-            const remote = figma.version.split(".");
+            const local = localVersion.split('.')
+            const remote = figma.version.split('.')
 
-            const revisionTags = ["version-mismatch"];
+            const revisionTags = ['version-mismatch']
             if (
               local[0] < remote[0] ||
               (local[0] === remote[0] && local[1] < remote[1]) ||
@@ -124,25 +124,25 @@ const withFigmaSyncTags = (
                 local[1] === remote[1] &&
                 local[2] < remote[2])
             ) {
-              revisionTags.push("needs-revision");
+              revisionTags.push('needs-revision')
             }
 
             return {
               ...entry,
               tags: makeTags(tags, revisionTags, figma.isDeprecated),
-            };
+            }
           }
 
           return {
             ...entry,
             tags: makeTags(tags, [], figma.isDeprecated),
-          };
-        });
+          }
+        })
       },
     }),
-  );
+  )
 
-  return badgedIndexers;
-};
+  return badgedIndexers
+}
 
-export { withFigmaSyncTags };
+export { withFigmaSyncTags }
