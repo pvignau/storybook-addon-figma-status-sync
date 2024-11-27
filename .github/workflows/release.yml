@@ -1,28 +1,51 @@
 name: Release
 
-on: [push]
+on:
+  workflow_run:
+    workflows: ['CI']
+    types:
+      - completed
+    branches:
+      - main
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  id-token: write
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    strategy:
+      matrix:
+        node-version: [22]
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Prepare repository
         run: git fetch --unshallow --tags
 
-      - name: Use Node.js 18.x
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: npm install --ignore-scripts
+        run: pnpm install --ignore-scripts
+
+      - name: Audit dependencies
+        run: pnpm audit
 
       - name: Create Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npm run release
+          pnpm release
