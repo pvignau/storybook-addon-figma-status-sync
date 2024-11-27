@@ -1,35 +1,35 @@
-import { ArrowDownIcon } from "@storybook/icons";
-import React, { Fragment, useState } from "react";
-import { styled } from "storybook/internal/theming";
+import { ArrowDownIcon } from '@storybook/icons'
+import React, { Fragment, useState } from 'react'
+import { styled } from 'storybook/internal/theming'
 
 type Item = {
-  title: string;
-  description: string;
-};
+  title: string
+  description: string
+}
 
 interface ListItemProps {
-  item: Item;
+  item: Item
 }
 
 interface ListProps {
-  items: Item[];
+  items: Item[]
 }
 
 const ListWrapper = styled.ul({
-  listStyle: "none",
+  listStyle: 'none',
   fontSize: 14,
   padding: 0,
   margin: 0,
-});
+})
 
 const Wrapper = styled.div(({ theme }) => ({
-  display: "flex",
-  width: "100%",
+  display: 'flex',
+  width: '100%',
   borderBottom: `1px solid ${theme.appBorderColor}`,
-  "&:hover": {
+  '&:hover': {
     background: theme.background.hoverable,
   },
-}));
+}))
 
 const Icon = styled(ArrowDownIcon)(({ theme }) => ({
   height: 10,
@@ -37,37 +37,37 @@ const Icon = styled(ArrowDownIcon)(({ theme }) => ({
   minWidth: 10,
   color: theme.color.mediumdark,
   marginRight: 10,
-  transition: "transform 0.1s ease-in-out",
-  alignSelf: "center",
-  display: "inline-flex",
-}));
+  transition: 'transform 0.1s ease-in-out',
+  alignSelf: 'center',
+  display: 'inline-flex',
+}))
 
 const HeaderBar = styled.div(({ theme }) => ({
   padding: theme.layoutMargin,
   paddingLeft: theme.layoutMargin - 3,
-  background: "none",
-  color: "inherit",
-  textAlign: "left",
-  cursor: "pointer",
-  borderLeft: "3px solid transparent",
-  width: "100%",
+  background: 'none',
+  color: 'inherit',
+  textAlign: 'left',
+  cursor: 'pointer',
+  borderLeft: '3px solid transparent',
+  width: '100%',
 
-  "&:focus": {
-    outline: "0 none",
+  '&:focus': {
+    outline: '0 none',
     borderLeft: `3px solid ${theme.color.secondary}`,
   },
-}));
+}))
 
 const Description = styled.div(({ theme }) => ({
   padding: theme.layoutMargin,
   background: theme.background.content,
   fontFamily: theme.typography.fonts.mono,
-  whiteSpace: "pre-wrap",
-  textAlign: "left",
-}));
+  whiteSpace: 'pre-wrap',
+  textAlign: 'left',
+}))
 
 export const ListItem: React.FC<ListItemProps> = ({ item }) => {
-  const [open, onToggle] = useState(false);
+  const [open, onToggle] = useState(false)
 
   return (
     <Fragment>
@@ -83,8 +83,8 @@ export const ListItem: React.FC<ListItemProps> = ({ item }) => {
       </Wrapper>
       {open ? <Description>{item.description}</Description> : null}
     </Fragment>
-  );
-};
+  )
+}
 
 export const List: React.FC<ListProps> = ({ items }) => (
   <ListWrapper>
@@ -92,4 +92,4 @@ export const List: React.FC<ListProps> = ({ items }) => (
       <ListItem key={idx} item={item}></ListItem>
     ))}
   </ListWrapper>
-);
+)

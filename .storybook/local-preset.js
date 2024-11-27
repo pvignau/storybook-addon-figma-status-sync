@@ -1,14 +1,14 @@
-import { experimental_indexers, managerHead } from "../src/preset";
+import { experimental_indexers, managerHead } from '../src/preset'
 
 /**
  * to load the built addon in this test Storybook
  */
 function previewAnnotations(entry = []) {
-  return [...entry, require.resolve("../dist/preview.js")];
+  return [...entry, require.resolve('../dist/preview.js')]
 }
 
 function managerEntries(entry = []) {
-  return [...entry, require.resolve("../dist/manager.js")];
+  return [...entry, require.resolve('../dist/manager.js')]
 }
 
 module.exports = {
@@ -16,4 +16,4 @@ module.exports = {
   managerHead,
   managerEntries,
   previewAnnotations,
-};
+}

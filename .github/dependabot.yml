@@ -1,19 +1,19 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
+  - package-ecosystem: 'npm'
     directories:
-      - "/"
+      - '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     versioning-strategy: increase
     assignees:
-      - "pvignau"
+      - 'pvignau'
     reviewers:
-      - "pvignau"
+      - 'pvignau'
     groups:
       all:
         patterns:
-          - "*"
+          - '*'
     ignore:
-      - dependency-name: "@storybook/*"
-      - dependency-name: "storybook"
+      - dependency-name: '@storybook/*'
+      - dependency-name: 'storybook'

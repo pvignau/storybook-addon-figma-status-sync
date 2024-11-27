@@ -1,16 +1,16 @@
-import type { StorybookConfig } from "@storybook/react-vite";
+import type { StorybookConfig } from '@storybook/react-vite'
 
-import { KEY } from "../src/constants";
-import data from "./figma.json";
+import { KEY } from '../src/constants'
+import data from './figma.json'
 
 const config: StorybookConfig = {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
     {
-      name: "./local-preset.js",
+      name: './local-preset.js',
       options: {
         [KEY]: { data },
 
@@ -26,12 +26,12 @@ const config: StorybookConfig = {
     },
   ],
   framework: {
-    name: "@storybook/react-vite",
+    name: '@storybook/react-vite',
     options: {},
   },
   docs: {
-    autodocs: "tag",
+    autodocs: 'tag',
   },
-};
+}
 
-export default config;
+export default config
