@@ -124,7 +124,7 @@
       "src/index.ts"
     ],
     "managerEntries": [
-      "src/manager.tsx"
+      "src/manager.ts"
     ],
     "previewEntries": [
       "src/preview.ts"

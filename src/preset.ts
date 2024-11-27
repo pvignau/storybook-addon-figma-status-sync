@@ -6,14 +6,14 @@ import picocolors from 'picocolors'
 
 import type { FigmaComponentStatus } from './types'
 import { ADDON_ID, KEY } from './constants'
-import { withFigmaSyncTags } from './withFigmaSyncTags'
+import { withFigmaSyncTags } from './utils/withFigmaSyncTags'
 
 interface FigmaSyncInitOpts {
   data?: FigmaComponentStatus[]
   path?: string
 }
 
-let _figmaData: FigmaComponentStatus[]
+let _figmaData: FigmaComponentStatus[] = []
 function figmaSyncInit(opts: FigmaSyncInitOpts) {
   const { data, path: dataPath } = opts || {}
 
@@ -30,8 +30,12 @@ function figmaSyncInit(opts: FigmaSyncInitOpts) {
     } catch (e) {
       throw new Error(`${picocolors.bold(ADDON_ID)}: ${e.message}`)
     }
-  } else {
-    throw new Error('bla bla wrong opts TODO')
+  } else if (opts !== undefined) {
+    throw new Error(
+      `${picocolors.bold(ADDON_ID)}: You must pass the status data fetched from the addon's companion script through either:
+- ${picocolors.magentaBright(`options.${KEY}.data`)}: an array of Figma status entries collated by you
+- ${picocolors.magentaBright(`options.${KEY}.path`)}: the absolute path to the JSON file created by the script`,
+    )
   }
 
   return _figmaData

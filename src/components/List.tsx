@@ -1,95 +1,81 @@
-import { ArrowDownIcon } from '@storybook/icons'
-import React, { Fragment, useState } from 'react'
+import React from 'react'
+
 import { styled } from 'storybook/internal/theming'
 
-type Item = {
-  title: string
-  description: string
+import type { FigmaComponentStatus } from '../types'
+import { getAriaLabel, getImage } from '../utils/componentStatus'
+import { sortByProperty } from '../utils/sortByProperty'
+
+const Table = styled.table`
+  width: 100%;
+  margin-block-end: 2rem;
+  display: grid;
+  grid-template-columns: minmax(12rem, auto) minmax(5rem, auto) 1fr;
+
+  thead,
+  tbody,
+  tr {
+    display: contents;
+  }
+
+  th,
+  td {
+    display: inline-flex;
+  }
+`
+
+/**
+ * Renders a list of components grouped by category in a table format
+ * @param components - Array of FigmaComponentStatus objects to display
+ * @returns JSX element containing tables of components grouped by category
+ */
+const List = ({ components }: { components: FigmaComponentStatus[] }) => {
+  return components.reduce((acc: JSX.Element[], component, index) => {
+    if (index === 0 || components[index - 1].category !== component.category) {
+      // Get all components for this category
+      const categoryComponents = components
+        .filter((c) => c.category === component.category)
+        .sort(sortByProperty('name'))
+
+      // Push both the header and its corresponding table
+      acc.push(
+        <div key={`section-${component.category}`}>
+          <h2>{component.category}</h2>
+          <Table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Version</th>
+                <th>Figma dev status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {categoryComponents.map((comp) => (
+                <tr key={comp.name}>
+                  <td>
+                    <strong>{comp.name}</strong>
+                  </td>
+                  <td>{comp.version}</td>
+                  <td>
+                    <div style={{ display: 'flex', gap: '.75rem' }}>
+                      <img
+                        alt={getAriaLabel(comp.devStatus?.type)}
+                        src={getImage(comp.devStatus?.type)}
+                        title={getAriaLabel(comp.devStatus?.type)}
+                        height="24"
+                      />
+                      <span>{comp.devStatus?.description ?? ''}</span>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </div>,
+      )
+    }
+    return acc
+  }, [])
 }
 
-interface ListItemProps {
-  item: Item
-}
-
-interface ListProps {
-  items: Item[]
-}
-
-const ListWrapper = styled.ul({
-  listStyle: 'none',
-  fontSize: 14,
-  padding: 0,
-  margin: 0,
-})
-
-const Wrapper = styled.div(({ theme }) => ({
-  display: 'flex',
-  width: '100%',
-  borderBottom: `1px solid ${theme.appBorderColor}`,
-  '&:hover': {
-    background: theme.background.hoverable,
-  },
-}))
-
-const Icon = styled(ArrowDownIcon)(({ theme }) => ({
-  height: 10,
-  width: 10,
-  minWidth: 10,
-  color: theme.color.mediumdark,
-  marginRight: 10,
-  transition: 'transform 0.1s ease-in-out',
-  alignSelf: 'center',
-  display: 'inline-flex',
-}))
-
-const HeaderBar = styled.div(({ theme }) => ({
-  padding: theme.layoutMargin,
-  paddingLeft: theme.layoutMargin - 3,
-  background: 'none',
-  color: 'inherit',
-  textAlign: 'left',
-  cursor: 'pointer',
-  borderLeft: '3px solid transparent',
-  width: '100%',
-
-  '&:focus': {
-    outline: '0 none',
-    borderLeft: `3px solid ${theme.color.secondary}`,
-  },
-}))
-
-const Description = styled.div(({ theme }) => ({
-  padding: theme.layoutMargin,
-  background: theme.background.content,
-  fontFamily: theme.typography.fonts.mono,
-  whiteSpace: 'pre-wrap',
-  textAlign: 'left',
-}))
-
-export const ListItem: React.FC<ListItemProps> = ({ item }) => {
-  const [open, onToggle] = useState(false)
-
-  return (
-    <Fragment>
-      <Wrapper>
-        <HeaderBar onClick={() => onToggle(!open)} role="button">
-          <Icon
-            style={{
-              transform: `rotate(${open ? 0 : -90}deg)`,
-            }}
-          />
-          {item.title}
-        </HeaderBar>
-      </Wrapper>
-      {open ? <Description>{item.description}</Description> : null}
-    </Fragment>
-  )
-}
-
-export const List: React.FC<ListProps> = ({ items }) => (
-  <ListWrapper>
-    {items.map((item, idx) => (
-      <ListItem key={idx} item={item}></ListItem>
-    ))}
-  </ListWrapper>
-)
+export default List

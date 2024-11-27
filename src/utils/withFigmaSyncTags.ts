@@ -1,6 +1,6 @@
 import type { Indexer, StoryIndexInput } from 'storybook/internal/types'
 
-import type { FigmaComponentStatus } from './types'
+import type { FigmaComponentStatus } from '../types'
 
 /**
  * Extracts the component name from the import path.
