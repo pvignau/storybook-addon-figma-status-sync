@@ -40,7 +40,7 @@ export const Button = ({
       type="button"
       className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
       style={{ backgroundColor }}
-      onClick={() => alert(window.parent.myAwesomeFigmaDataSet)} // 😖
+      onClick={() => alert(window.parent.figmaStatusSync)} // 😖
       {...props}
     >
       {label}
