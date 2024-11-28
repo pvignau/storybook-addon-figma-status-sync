@@ -133,6 +133,10 @@
       "src/preset.ts"
     ]
   },
+  "packageManager": "pnpm@9.12.3",
+  "engines": {
+    "node": ">=20"
+  },
   "storybook": {
     "displayName": "Figma Status Sync",
     "supportedFrameworks": [
