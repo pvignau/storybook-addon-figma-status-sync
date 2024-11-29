@@ -9,6 +9,7 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
+    'storybook-addon-tag-badges',
     {
       name: './local-preset.js',
       options: {

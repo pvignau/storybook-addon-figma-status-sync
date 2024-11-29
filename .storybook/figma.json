@@ -1,0 +1,302 @@
+[
+  {
+    "name": "Avatar",
+    "category": "Data Display",
+    "version": "1.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": null
+    }
+  },
+  {
+    "name": "Backdrop",
+    "category": "Overlay",
+    "version": "1.0.0",
+    "isDeprecated": true,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": "Use Modal or Dialog components instead"
+    }
+  },
+  {
+    "name": "Badge",
+    "category": "Feedback",
+    "version": "1.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": null
+    }
+  },
+  {
+    "name": "Breadcrumbs",
+    "category": "Navigation",
+    "version": "1.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": null
+    }
+  },
+  {
+    "name": "Button",
+    "category": "Buttons",
+    "version": "1.3.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "READY_FOR_DEV",
+      "description": "Added style for when submitting"
+    }
+  },
+  {
+    "name": "Button group",
+    "category": "Buttons",
+    "version": "1.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": null
+    }
+  },
+  {
+    "name": "Card",
+    "category": "Data Display",
+    "version": "1.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": null
+    }
+  },
+  {
+    "name": "Checkbox",
+    "category": "Forms",
+    "version": "1.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": null
+    }
+  },
+  {
+    "name": "Datepicker",
+    "category": "Buttons",
+    "version": "1.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": null
+    }
+  },
+  {
+    "name": "Dialog",
+    "category": "Overlay",
+    "version": "1.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": null
+    }
+  },
+  {
+    "name": "Drawer",
+    "category": "Overlay",
+    "version": "1.2.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "READY_FOR_DEV",
+      "description": "Switched to inline-start and inline-end position prop naming"
+    }
+  },
+  {
+    "name": "Fieldset",
+    "category": "Forms",
+    "version": "1.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": null
+    }
+  },
+  {
+    "name": "File upload",
+    "category": "Forms",
+    "version": "0.9.1",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "NOT_READY",
+      "description": "Drag and drop support pending"
+    }
+  },
+  {
+    "name": "Icon",
+    "category": "Data Display",
+    "version": "1.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": null
+    }
+  },
+  {
+    "name": "Input date",
+    "category": "Forms",
+    "version": "2.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": "null"
+    }
+  },
+  {
+    "name": "Input text",
+    "category": "Forms",
+    "version": "1.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": null
+    }
+  },
+  {
+    "name": "Link",
+    "category": "Navigation",
+    "version": "1.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": null
+    }
+  },
+  {
+    "name": "Pagination",
+    "category": "Navigation",
+    "version": "3.0.2",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": "Fixed bug with autolayout on large page numbers"
+    }
+  },
+  {
+    "name": "Popover",
+    "category": "Overlay",
+    "version": "1.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": "Built v1 of Popover"
+    }
+  },
+  {
+    "name": "Progress",
+    "category": "Feedback",
+    "version": "0.7.1",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "NOT_READY",
+      "description": "New brand design, still WIP"
+    }
+  },
+  {
+    "name": "Quote",
+    "category": "Data Display",
+    "version": "1.4.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "READY_FOR_DEV",
+      "description": "Added date feature"
+    }
+  },
+  {
+    "name": "Rating",
+    "category": "Data Display",
+    "version": "1.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "READY_FOR_DEV",
+      "description": "Released rating v1"
+    }
+  },
+  {
+    "name": "Skeleton",
+    "category": "Feedback",
+    "version": "1.1.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": "Added circle variant"
+    }
+  },
+  {
+    "name": "Skiplink",
+    "category": "Navigation",
+    "version": "1.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": "Added skiplink as per a11y audit recommendations"
+    }
+  },
+  {
+    "name": "Spinner",
+    "category": "Feedback",
+    "version": "1.0.3",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "READY_FOR_DEV",
+      "description": "Changed animation speed token in implementation guidelines"
+    }
+  },
+  {
+    "name": "Switch",
+    "category": "Buttons",
+    "version": "1.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": "Created v1 of switch component."
+    }
+  },
+  {
+    "name": "Tab item",
+    "category": "Navigation",
+    "version": "1.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "READY_FOR_DEV",
+      "description": "V1 of Tabs and Tab item"
+    }
+  },
+  {
+    "name": "Tabs",
+    "category": "Navigation",
+    "version": "1.0.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "READY_FOR_DEV",
+      "description": "V1 of Tabs and Tab item"
+    }
+  },
+  {
+    "name": "Toast",
+    "category": "Feedback",
+    "version": "2.1.0",
+    "isDeprecated": false,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": "Adjusted padding of action area"
+    }
+  },
+  {
+    "name": "Toggle",
+    "category": "Buttons",
+    "version": "1.3.0",
+    "isDeprecated": true,
+    "devStatus": {
+      "type": "COMPLETED",
+      "description": "Use Switch component instead"
+    }
+  }
+]
