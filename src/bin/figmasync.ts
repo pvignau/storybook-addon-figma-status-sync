@@ -10,6 +10,7 @@ import type {
   Node,
 } from '@figma/rest-api-spec'
 import type { FigmaComponentStatus } from '../types.ts'
+// @ts-expect-error module resolution can't be easily set to node16 in tsup config
 import { Client } from '@figmarine/rest'
 import { visit } from 'unist-util-visit'
 import { ComponentProperty, InstanceNode } from '@figmarine/rest/dist/index.js'
@@ -26,7 +27,7 @@ interface Arguments {
 // TODO: Suggest me something better than this
 interface FigmaMetaPageStatus {
   meta: InstanceNode
-  devStatus: DevStatusTrait | null
+  devStatus: DevStatusTrait['devStatus'] | null
 }
 
 const dirname = process.cwd()
@@ -52,7 +53,7 @@ const FIGMA_NODE_TYPES_TO_CONSIDER = [
 /**
  * Checks the environment configuration for required variables.
  *
- * @param {Object} args - The arguments object.
+ * Checks the environment configuration for required variables.
  */
 function checkEnv() {
   if (!process.env.FIGMA_PERSONAL_ACCESS_TOKEN) {
@@ -124,8 +125,8 @@ function getPropertyValue(
  */
 function getComponentDevStatus(
   component: FigmaMetaPageStatus,
-): { type: string; description: string | null } | null {
-  if (component.devStatus) {
+): FigmaComponentStatus['devStatus'] | null {
+  if (component.devStatus !== null) {
     const { type, description } = component.devStatus
 
     return { type, description: description ? description.trim() : null }
@@ -145,8 +146,8 @@ function getComponentStatusesFromFilePages(pages: CanvasNode[]): {
 } {
   const components: {
     [KEY: string]: {
-      meta: InstanceNode | null
-      devStatus: DevStatusTrait | null
+      meta: Node | null
+      devStatus: DevStatusTrait['devStatus'] | null
     }
   } = {}
 
@@ -158,13 +159,13 @@ function getComponentStatusesFromFilePages(pages: CanvasNode[]): {
         node.name === FIGMA_META_NODE_NAME &&
         node.type === FIGMA_NODE_INSTANCE_TYPE
       ) {
-        components[page.name].meta = node as InstanceNode
+        components[page.name].meta = node
       }
       if (FIGMA_NODE_TYPES_TO_CONSIDER.includes(node.type)) {
         if ('devStatus' in node) {
-          components[page.name].devStatus = node.devStatus as DevStatusTrait
+          components[page.name].devStatus = node.devStatus
         } else if ('devStatus' in parent) {
-          components[page.name].devStatus = parent.devStatus as DevStatusTrait
+          components[page.name].devStatus = parent.devStatus
         }
       }
     })
@@ -208,7 +209,7 @@ function getComponentStatusesFromFilePages(pages: CanvasNode[]): {
 /**
  * Writes the component statuses to a JSON file for a given target.
  *
- * @param {string} target - The target name.
+ * @param {string} filepath - The file path to write output.
  * @param {Array} components - The component statuses.
  */
 function writeTargetComponentStatus(
