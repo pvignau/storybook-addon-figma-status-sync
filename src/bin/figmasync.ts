@@ -24,7 +24,7 @@ interface Arguments {
   output: string
 }
 
-// TODO: Suggest me something better than this
+// TODO: Suggest me something better named than this
 interface FigmaMetaPageStatus {
   meta: InstanceNode
   devStatus: DevStatusTrait['devStatus'] | null
@@ -52,15 +52,12 @@ const FIGMA_NODE_TYPES_TO_CONSIDER = [
 
 /**
  * Checks the environment configuration for required variables.
- *
- * Checks the environment configuration for required variables.
  */
 function checkEnv() {
   if (!process.env.FIGMA_PERSONAL_ACCESS_TOKEN) {
-    process.stderr.write(
+    throw new Error(
       `Error: The FIGMA_PERSONAL_ACCESS_TOKEN environment variable must be set.\n`,
     )
-    process.exit(1)
   }
 }
 
@@ -225,6 +222,9 @@ function writeTargetComponentStatus(
  * @param {Arguments} args - The arguments object containing the Figma file key and the output file path.
  */
 async function synchronizeComponentStatuses(args: Arguments) {
+  // CHECK ENVIRONMENT
+  checkEnv()
+
   // MAIN PROCESSING
   // Convert relative filepath to absolute path if needed
   const absolutePath = path.isAbsolute(args.output)
@@ -250,10 +250,9 @@ async function main() {
   try {
     // ARG HANDLING
     process.stdout.write(
-      pc.blueBright('Figmasync - Figma components status sync tool\n'),
+      pc.blueBright(`Figmasync - Figma components status sync tool\n`),
     )
 
-    checkEnv()
     await yargs(process.argv.slice(2))
       .scriptName('figmasync')
       .usage('Usage: $0 <figma-file-key> <output>')
@@ -276,7 +275,6 @@ async function main() {
         await synchronizeComponentStatuses,
       )
       .fail((msg, err) => {
-        process.stderr.write(msg)
         if (err) {
           throw err
         }
