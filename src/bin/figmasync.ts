@@ -76,12 +76,11 @@ async function getFigmaFile(figmaFileKey: string): Promise<DocumentNode> {
     personalAccessToken: process.env.FIGMA_PERSONAL_ACCESS_TOKEN,
   })
 
-  const response = await c.v1.getFile(figmaFileKey)
-  if (response.status !== 200) {
-    throw new Error(`Failed to retrieve Figma file: ${response.statusText}`)
+  try {
+    return (await c.v1.getFile(figmaFileKey)) as DocumentNode
+  } catch (error) {
+    throw new Error(`Failed to retrieve Figma file: ${error.message}`)
   }
-
-  return response.data.document as DocumentNode
 }
 
 /**
@@ -254,7 +253,6 @@ async function main() {
       pc.blueBright('Figmasync - Figma components status sync tool\n'),
     )
 
-    console.log(process.argv.slice(2))
     checkEnv()
     await yargs(process.argv.slice(2))
       .scriptName('figmasync')
@@ -275,12 +273,19 @@ async function main() {
             })
             .demandOption('output')
         },
-        synchronizeComponentStatuses,
+        await synchronizeComponentStatuses,
       )
+      .fail((msg, err) => {
+        process.stderr.write(msg)
+        if (err) {
+          throw err
+        }
+        process.exit(1)
+      })
       .help()
       .parse()
   } catch (error) {
-    process.stderr.write(`Error while processing: ${error.message}\n`)
+    process.stderr.write(`${error.message}`)
   }
 }
 
