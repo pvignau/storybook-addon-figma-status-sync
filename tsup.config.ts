@@ -9,13 +9,12 @@ const NODE_TARGET: Options['target'] = ['node18']
 
 type BundlerConfig = {
   bundler?: {
-    exportEntries?: string[];
-    nodeEntries?: string[];
-    managerEntries?: string[];
-    previewEntries?: string[];
-    binaryEntries?: string[];
-  };
-};
+    exportEntries?: string[]
+    nodeEntries?: string[]
+    managerEntries?: string[]
+    previewEntries?: string[]
+  }
+}
 
 export default defineConfig(async (options) => {
   const packageJson = (await readFile('./package.json', 'utf8').then(
@@ -27,7 +26,6 @@ export default defineConfig(async (options) => {
       managerEntries = [],
       previewEntries = [],
       nodeEntries = [],
-      binaryEntries = [],
     } = {},
   } = packageJson
 

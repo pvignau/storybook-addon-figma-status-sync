@@ -87,7 +87,6 @@
     "@vitest/coverage-istanbul": "2.1.7",
     "auto": "^11.3.0",
     "boxen": "^8.0.1",
-    "chalk": "^5.3.0",
     "commitlint": "^19.6.0",
     "dedent": "^1.5.3",
     "eslint": "^9.16.0",
@@ -136,9 +135,6 @@
     ],
     "nodeEntries": [
       "src/preset.ts"
-    ],
-    "binaryEntries": [
-      "src/figmasync.ts"
     ]
   },
   "packageManager": "pnpm@9.12.3",

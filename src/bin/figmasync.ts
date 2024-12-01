@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import chalk from 'chalk'
+import pc from 'picocolors'
 import yargs from 'yargs'
 
 import type {
@@ -251,15 +251,16 @@ async function main() {
   try {
     // ARG HANDLING
     process.stdout.write(
-      chalk.bold.blueBright('Figmasync - Figma components status sync tool\n'),
+      pc.blueBright('Figmasync - Figma components status sync tool\n'),
     )
 
+    console.log(process.argv.slice(2))
     checkEnv()
     await yargs(process.argv.slice(2))
       .scriptName('figmasync')
-      .usage('Usage: $0 sync <figma-file-key> <output>')
+      .usage('Usage: $0 <figma-file-key> <output>')
       .command(
-        '$0 sync <figma-file-key> <output>',
+        '$0 <figma-file-key> <output>',
         '',
         (y: yargs.Argv<Arguments>) => {
           return y
