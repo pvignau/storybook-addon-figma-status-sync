@@ -3,17 +3,18 @@ import path from 'path'
 import pc from 'picocolors'
 import yargs from 'yargs'
 
-import type {
-  CanvasNode,
-  DevStatusTrait,
-  DocumentNode,
-  Node,
-} from '@figma/rest-api-spec'
 import type { FigmaComponentStatus } from '../types.ts'
 // @ts-expect-error module resolution can't be easily set to node16 in tsup config
 import { Client } from '@figmarine/rest'
 import { visit } from 'unist-util-visit'
-import { ComponentProperty, InstanceNode } from '@figmarine/rest/dist/index.js'
+import {
+  CanvasNode,
+  ComponentProperty,
+  DevStatusTrait,
+  DocumentNode,
+  Node,
+  InstanceNode,
+} from '@figmarine/rest/dist'
 
 /// /////////////////////////////////////////////////////////////////////
 /// /////////////   General constants and singletons.    ////////////////
