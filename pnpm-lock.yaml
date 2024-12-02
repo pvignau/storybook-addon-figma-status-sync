@@ -22,11 +22,8 @@ importers:
         specifier: ^19.6.0
         version: 19.6.0
       '@eslint/js':
-        specifier: ^9.15.0
-        version: 9.15.0
-      '@figma/rest-api-spec':
-        specifier: ^0.21.0
-        version: 0.21.0
+        specifier: ^9.16.0
+        version: 9.16.0
       '@storybook/addon-essentials':
         specifier: ^8.0.0
         version: 8.4.5(@types/react@18.3.12)(storybook@8.4.5(prettier@3.4.1))
@@ -140,13 +137,19 @@ importers:
         version: 5.7.2
       typescript-eslint:
         specifier: ^8.16.0
-        version: 8.16.0(eslint@9.15.0(jiti@1.21.6))(typescript@5.7.2)
+        version: 8.16.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2)
+      unist-util-visit:
+        specifier: ^5.0.0
+        version: 5.0.0
       vite:
         specifier: ^6.0.2
         version: 6.0.2(@types/node@22.10.1)(jiti@1.21.6)(yaml@2.6.1)
       vitest:
-        specifier: ^2.1.6
-        version: 2.1.6(@types/node@22.10.1)(jiti@1.21.6)(jsdom@25.0.1)(yaml@2.6.1)
+        specifier: ^2.1.7
+        version: 2.1.7(@types/node@22.10.1)(jsdom@25.0.1)
+      yargs:
+        specifier: ^17.7.2
+        version: 17.7.2
       zx:
         specifier: ^8.2.4
         version: 8.2.4
@@ -6157,7 +6160,13 @@ snapshots:
 
   '@types/uuid@9.0.8': {}
 
-  '@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.15.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.15.0(jiti@1.21.6))(typescript@5.7.2)':
+  '@types/yargs-parser@21.0.3': {}
+
+  '@types/yargs@17.0.33':
+    dependencies:
+      '@types/yargs-parser': 21.0.3
+
+  '@typescript-eslint/eslint-plugin@8.16.0(@typescript-eslint/parser@8.16.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2))(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2)':
     dependencies:
       '@eslint-community/regexpp': 4.12.1
       '@typescript-eslint/parser': 8.16.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2)
@@ -6198,8 +6207,8 @@ snapshots:
       '@typescript-eslint/typescript-estree': 8.16.0(typescript@5.7.2)
       '@typescript-eslint/utils': 8.16.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2)
       debug: 4.3.7
-      eslint: 9.15.0(jiti@1.21.6)
-      ts-api-utils: 1.4.2(typescript@5.7.2)
+      eslint: 9.16.0(jiti@1.21.6)
+      ts-api-utils: 1.4.3(typescript@5.7.2)
     optionalDependencies:
       typescript: 5.7.2
     transitivePeerDependencies:
