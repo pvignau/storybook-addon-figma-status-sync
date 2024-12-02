@@ -104,7 +104,7 @@ export default defineConfig(async (options) => {
   configs.push({
     ...commonConfig,
     entry: ['src/bin/figmasync.ts'],
-    format: ['cjs'],
+    format: ['esm'],
     target: NODE_TARGET,
     platform: 'node',
   })
